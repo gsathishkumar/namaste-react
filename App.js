@@ -1,18 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-// Parcel Invokes Babel Transpiler to convert JSX to Javascript compliant REACT code
-
-const reactElement = React.createElement(
-  'h1',
-  { id: 'heading' },
-  'React Element Heading',
-);
 const jsxHeading = <h1 id="heading">JSX Heading</h1>;
 
-console.log(reactElement);
-console.log(jsxHeading);
+const Title = () => <h3 id="title">Title</h3>;
+
+const HeadingComponent = () => {
+  return (
+    <div id="container">
+      <h1>Component Composition</h1>
+      <h2 id="heading">Heading</h2>
+      <Title />
+    </div>
+  );
+};
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(reactElement);
-root.render(jsxHeading);
+root.render(<HeadingComponent />);
