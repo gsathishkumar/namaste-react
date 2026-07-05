@@ -1,20 +1,34 @@
 import { LOGO_URL } from '../utils/constants';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import useOnlineStatus from '../utils/useOnlineStatus';
 
 const Header = () => {
   const [btnNameReact, setBtnNameReact] = useState('Login');
-  console.log('Header render');
+  const onlineStatus = useOnlineStatus();
+
+  useEffect(() => {
+    console.log('>>>>>>>>>>>>>> Header.useEffect() rendered');
+  }, [btnNameReact]);
 
   return (
-    <div className="header">
+    <div className="flex justify-between bg-pink-100 shadow-lg sm:bg-yellow-100 lg:bg-green-100">
       <div className="logo-container">
-        <img className="logo" src={LOGO_URL} />
+        <img className="w-50" src={LOGO_URL} />
       </div>
-      <div className="nav-items">
-        <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact Us</li>
+
+      <div className="flex items-center">
+        <ul className="flex p-4 m-4 gap-5">
+          <li>Online Status {onlineStatus ? '✅' : '🔴'}</li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact Us</Link>
+          </li>
           <li>Cart</li>
           <button
             className="login"

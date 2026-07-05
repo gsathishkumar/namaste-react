@@ -20,13 +20,23 @@
   },
   "homepage": "https://github.com/gsathishkumar/namaste-react#readme",
   "devDependencies": {
-    "parcel": "^2.16.4"
+    "@tailwindcss/postcss": "^4.3.2",
+    "parcel": "^2.8.3",
+    "postcss": "^8.4.24",
+    "tailwindcss": "^4.3.2"
   },
   "dependencies": {
-    "react": "^19.2.7",
-    "react-dom": "^19.2.7"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.11.2"
   },
   "browserslist": [
     "last 2 chrome versions"
-  ]
+  ],
+  "allowScripts": {
+    "@parcel/watcher@2.5.6": true,
+    "@swc/core@1.15.43": true,
+    "lmdb@2.8.5": true,
+    "msgpackr-extract@3.0.4": true
+  }
 }
