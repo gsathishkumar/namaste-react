@@ -37,35 +37,52 @@ const AppLayout = () => {
   );
 };
 
-const routerConfig = createBrowserRouter([
+const routerConfig = createBrowserRouter(
+  [
+    {
+      path: '/',
+      element: <AppLayout />,
+      children: [
+        {
+          path: '/',
+          element: <Body />,
+        },
+        {
+          path: '/about',
+          element: <About />,
+        },
+        {
+          path: '/contact',
+          element: <Contact />,
+        },
+        {
+          path: '/cart',
+          element: <Cart />,
+        },
+        {
+          path: '/restaurants/:resId',
+          element: <RestaurantMenu />,
+        },
+      ],
+      errorElement: <Error />,
+    },
+  ],
   {
-    path: '/',
-    element: <AppLayout />,
-    children: [
-      {
-        path: '/',
-        element: <Body />,
-      },
-      {
-        path: '/about',
-        element: <About />,
-      },
-      {
-        path: '/contact',
-        element: <Contact />,
-      },
-      {
-        path: '/cart',
-        element: <Cart />,
-      },
-      {
-        path: '/restaurants/:resId',
-        element: <RestaurantMenu />,
-      },
-    ],
-    errorElement: <Error />,
+    // 1. Add future flags to the router creation step
+    future: {
+      v7_relativeSplatPath: true,
+      v7_fetcherPersist: true,
+      v7_normalizeFormMethod: true,
+      v7_partialHydration: true,
+      v7_skipActionErrorRevalidation: true,
+    },
   },
-]);
+);
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
-root.render(<RouterProvider router={routerConfig} />);
+// 2. Add the startTransition flag to the Provider component
+root.render(
+  <RouterProvider
+    router={routerConfig}
+    future={{ v7_startTransition: true }}
+  />,
+);

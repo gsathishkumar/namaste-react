@@ -15,9 +15,9 @@ const Header = () => {
   const cartItems = useSelector(store => store.cart.items);
   //console.log(cartItems);
 
-  useEffect(() => {
-    console.log('>>>>>>>>>>>>>> Header.useEffect() rendered');
-  }, [btnNameReact]);
+  // useEffect(() => {
+  //   console.log('>>>>>>>>>>>>>> Header.useEffect() rendered');
+  // }, [btnNameReact]);
 
   return (
     <div className="flex justify-between bg-pink-100 shadow-lg sm:bg-yellow-100 lg:bg-green-100">
