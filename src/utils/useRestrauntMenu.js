@@ -6,7 +6,7 @@ const useRestaurantMenu = resId => {
   const [resInfo, setResInfo] = useState(null);
 
   useEffect(() => {
-    console.log('useRestaurantMenu::useEffect() invoked ');
+    // console.log('useRestaurantMenu::useEffect() invoked ');
     fetchData();
   }, []);
 
